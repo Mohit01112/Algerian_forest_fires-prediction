@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        /* Background and Page Styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        }
+
+        .result-container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px 30px;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        .result-box {
+            background: #28a745;
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: bold;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 10px;
+            animation: pop 0.8s ease-in-out;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 15px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #fff;
+        }
+
+        th {
+            background: #007bff;
+            color: #fff;
+        }
+
+        td {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .back-btn {
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            background: #ff4500;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            transition: 0.3s ease-in-out;
+        }
+
+        .back-btn:hover {
+            background: #e63900;
+            transform: scale(1.1);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pop {
+            0% { transform: scale(0.8); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>🔥 Prediction Result 🔥</h1>
+
+        <!-- Prediction Value -->
+        <div class="result-box">
+            ✅ Predicted Value: {{ prediction_text }}
+        </div>
+
+        <!-- Entered Values Table -->
+        <h2>📌 Entered Features</h2>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Value</th>
+            </tr>
+            {% for key, value in input_data.items() %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <!-- Back Button -->
+        <a href="/home" class="back-btn">🔙 Back to Input Page</a>
+    </div>
+</body>
+</html>
