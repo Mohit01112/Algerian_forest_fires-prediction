@@ -122,9 +122,6 @@ Artificial Intelligence and Data Science
 
 ---
 
-### ✅ You can now:
-- Paste this directly into **README.md**
-- Commit → Push → Done 💯
 
 If you want, I can:
 - Add **badges** (Python, ML, GitHub)
